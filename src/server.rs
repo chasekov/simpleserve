@@ -2,12 +2,6 @@
 #[path = "./request.rs"] mod request;
 #[path = "./response.rs"] mod response;
 
-
-// use tokio::net::TcpListener;
-// use tokio::net::TcpStream;
-// use tokio::prelude::*;
-// use std::error::Error;
-
 use threads::ThreadPool;
 
 use request::Request;
@@ -62,7 +56,7 @@ fn handle_request(mut socket: TcpStream) {
     if buffer[0] == 0 {
         return;
     }
-    
+
     let request = Request::new(&buffer);
     println!("{}", request);
 
